@@ -1,7 +1,11 @@
 import React, {useState, useEffect} from 'react'
+import { useHistory } from 'react-router';
 
 function Nav() {
     const [show, handleShow] = useState(false);
+    const history = useHistory();
+
+
     const transitionNavBar = () => {
         if(window.scrollY > 100) {
             handleShow(true);
@@ -20,13 +24,15 @@ function Nav() {
         <div className={`fixed top-0 p-5 w-full h-30px z-10 transition duration-500 ease-in ${show && 'bg-black'}`}> 
             <div className="flex justify-between item">
                 <img
-                    className="fixed top-1 left-0 w-20 object-contain pl-5 cursor-pointer"
+                    onClick={() => history.push("/")}
+                    className="fixed top-2 left-0 w-20 object-contain pl-5 cursor-pointer"
                     src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c529.png" 
                     alt="" 
                 />
 
                 <img
-                    className="fixed top-1 right-5 w-7 h-7 cursor-pointer"
+                    onClick={() => history.push("/profile")}
+                    className="fixed top-2 right-5 w-7 h-7 cursor-pointer"
                     src="https://pbs.twimg.com/profile_images/1240119990411550720/hBEe3tdn_400x400.png" 
                     alt="" 
                 />
